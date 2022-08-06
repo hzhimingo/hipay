@@ -13,6 +13,14 @@
         <module>hipay-gateway</module>
         <module>hipay-common</module>
         <module>hipay-auth</module>
+        <module>hipay-merchant</module>
+        <module>hipay-trade</module>
+        <module>hipay-acquirer-parent</module>
+        <module>hipay-monitor</module>
+        <module>hipay-statistics</module>
+        <module>hipay-reconciliation</module>
+        <module>hipay-payment</module>
+        <module>hipay-rbac</module>
     </modules>
 
 </project>
