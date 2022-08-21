@@ -1,0 +1,17 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /rbac
+spring:
+  application:
+    name: hipay-rbac
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.109:8848
+        namespace: e478d6f6-5ea5-4b65-9e18-c45e4a89d5f8
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.110:3306/hi_pay?autoReconnect=true&useSSL=false&characterEncoding=utf-8&useUnicode=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: MySQL80293006!
