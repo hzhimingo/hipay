@@ -5,6 +5,7 @@ import com.zhimingo.hipay.rbac.entity.Area;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 地区码相关服务
@@ -23,6 +24,8 @@ public interface AreaService {
      * @return 下级区域列表
      */
     List<Area> subArea(Long id);
+
+    Optional<Area> getAreaInfo(String areaCode);
 
     /**
      * 通过区域ID获取

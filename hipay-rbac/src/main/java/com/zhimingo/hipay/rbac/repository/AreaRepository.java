@@ -12,4 +12,6 @@ public interface AreaRepository extends CrudRepository<Area, Long> {
     boolean existsAreaByCode(String code);
 
     List<Area> findAreasByParent(Long parent);
+
+    Area findAreaByCode(String areaCode);
 }

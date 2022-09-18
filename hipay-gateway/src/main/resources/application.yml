@@ -1,0 +1,16 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: hipay-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.109:8848
+        namespace: e478d6f6-5ea5-4b65-9e18-c45e4a89d5f8
+    gateway:
+      routes:
+        - id: hipay-rbac
+          uri: lb://hipay-rbac
+          predicates:
+            - Path=/rbac/**

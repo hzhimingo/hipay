@@ -79,6 +79,11 @@ public class AreaServiceImpl implements AreaService {
     }
 
     @Override
+    public Optional<Area> getAreaInfo(String areaCode) {
+        return Optional.ofNullable(areaRepository.findAreaByCode(areaCode));
+    }
+
+    @Override
     @SuppressWarnings("all")
     public HashMap<String, Object> getFullPath(Long id) {
         Optional<Area> optionalArea = areaRepository.findById(id);
