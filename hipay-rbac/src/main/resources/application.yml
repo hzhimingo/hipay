@@ -1,7 +1,6 @@
 server:
   port: 8002
-  servlet:
-    context-path: /rbac
+
 spring:
   application:
     name: hipay-rbac

@@ -1,4 +1,4 @@
-package com.zhimingo.hipay.rbac.service.impl;
+package com.zhimingo.hipay.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
