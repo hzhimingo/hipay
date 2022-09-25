@@ -2,7 +2,7 @@ package com.zhimingo.hipay.rbac.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhimingo.hipay.mvc.exception.HiPayException;
+import com.zhimingo.hipay.core.CommonException;
 import com.zhimingo.hipay.rbac.dto.form.AddAreaForm;
 import com.zhimingo.hipay.rbac.entity.Area;
 import com.zhimingo.hipay.rbac.repository.AreaRepository;
@@ -37,14 +37,14 @@ public class AreaServiceImpl implements AreaService {
     public void addArea(AddAreaForm form) {
         boolean isCodeExists = areaRepository.existsAreaByCode(form.getCode());
         if (isCodeExists) {
-            throw new HiPayException(0, "");
+            throw new CommonException("0", "");
         }
         Area record = new Area();
         record.setCode(form.getCode());
         record.setName(form.getName());
         if (form.getParent() != null) {
             Optional<Area> optionalParentArea = areaRepository.findById(form.getParent());
-            Area parentArea = optionalParentArea.orElseThrow(() -> new HiPayException(0, ""));
+            Area parentArea = optionalParentArea.orElseThrow(() -> new CommonException("0", ""));
             record.setParent(parentArea.getId());
             record.setPath(parentArea.getPath());
         }
@@ -65,7 +65,7 @@ public class AreaServiceImpl implements AreaService {
             return objectMapper.writeValueAsString(parentPath);
         } catch (Exception e) {
             log.error("json 转换失败", e);
-            throw new HiPayException(0, "");
+            throw new CommonException("0", "");
         }
     }
 
@@ -87,13 +87,13 @@ public class AreaServiceImpl implements AreaService {
     @SuppressWarnings("all")
     public HashMap<String, Object> getFullPath(Long id) {
         Optional<Area> optionalArea = areaRepository.findById(id);
-        Area area = optionalArea.orElseThrow(() -> new HiPayException(0, ""));
+        Area area = optionalArea.orElseThrow(() -> new CommonException("0", ""));
         try {
             LinkedList<String> pathNodes = objectMapper.readValue(area.getPath(), LinkedList.class);
             HashMap<String, Object> tree = new HashMap<>();
             pathNodes.forEach(node -> {
                 Optional<Area> optionalNodeArea = areaRepository.findById(Long.valueOf(node));
-                Area nodeArea = optionalNodeArea.orElseThrow(() -> new HiPayException(0, ""));
+                Area nodeArea = optionalNodeArea.orElseThrow(() -> new CommonException("0", ""));
                 if (tree.isEmpty()) {
                     tree.put(AREA_CODE, nodeArea.getCode());
                     tree.put(AREA_NAME, nodeArea.getName());

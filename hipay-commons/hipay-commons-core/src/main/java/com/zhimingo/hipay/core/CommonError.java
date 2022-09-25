@@ -7,16 +7,17 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum CommonError implements BaseError {
 
-    UNKNOW_ERROR("10001", "服务异常，请稍后重试");
+    SERVER_ERROR("999999", "服务异常，请稍后重试");
 
+    /**
+     * 错误码
+     */
     private final String code;
 
+    /**
+     * 错误信息
+     */
     private final String msg;
-
-    @Override
-    public String getModule() {
-        return null;
-    }
 
     @Override
     public String getCode() {

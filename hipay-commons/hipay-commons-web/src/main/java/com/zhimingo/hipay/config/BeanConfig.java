@@ -1,4 +1,4 @@
-package com.zhimingo.hipay.rbac.config;
+package com.zhimingo.hipay.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

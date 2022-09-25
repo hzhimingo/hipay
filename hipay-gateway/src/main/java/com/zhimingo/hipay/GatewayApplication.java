@@ -1,4 +1,4 @@
-package com.zhimingo.hipay.mvc.gateway;
+package com.zhimingo.hipay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

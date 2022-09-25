@@ -1,6 +1,6 @@
 package com.zhimingo.hipay.rbac.service.impl;
 
-import com.zhimingo.hipay.mvc.exception.HiPayException;
+import com.zhimingo.hipay.core.CommonException;
 import com.zhimingo.hipay.rbac.dto.form.CreateOrgForm;
 import com.zhimingo.hipay.rbac.entity.Area;
 import com.zhimingo.hipay.rbac.repository.OrgRepository;
@@ -30,7 +30,7 @@ public class OrgServiceImpl implements OrgService {
 
     private String generateOrgNo(String areaCode) {
         Optional<Area> optionalArea = areaService.getAreaInfo(areaCode);
-        Area area = optionalArea.orElseThrow(() -> new HiPayException(0, ""));
+        Area area = optionalArea.orElseThrow(() -> new CommonException("0", ""));
         return null;
     }
 
