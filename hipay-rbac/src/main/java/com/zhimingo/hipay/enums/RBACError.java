@@ -2,9 +2,6 @@ package com.zhimingo.hipay.enums;
 
 import com.zhimingo.hipay.core.BaseError;
 
-import java.util.Arrays;
-import java.util.Optional;
-
 public enum RBACError implements BaseError {
 
     ;
@@ -26,9 +23,5 @@ public enum RBACError implements BaseError {
     @Override
     public String getMsg() {
         return msg;
-    }
-
-    public static Optional<RBACError> of(String code) {
-        return Arrays.stream(RBACError.values()).filter(value -> value.getCode().equals(code)).findAny();
     }
 }
