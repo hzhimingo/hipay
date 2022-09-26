@@ -1,14 +1,9 @@
 package com.zhimingo.hipay.core;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
 /**
  * 全局统一响应封装类
  * @param <T>
  */
-@Getter
-@AllArgsConstructor
 public class Result<T> {
 
     /**
@@ -25,6 +20,12 @@ public class Result<T> {
      * 响应数据
      */
     private final T data;
+
+    public Result(String code, String msg, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
 
     public static <T> Result<T> response(String code, String msg, T data) {
         return new Result<>(code, msg, data);
@@ -46,4 +47,15 @@ public class Result<T> {
         return fail(CommonError.SERVER_ERROR);
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public T getData() {
+        return data;
+    }
 }
